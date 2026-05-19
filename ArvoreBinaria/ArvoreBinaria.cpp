@@ -71,7 +71,7 @@ void menu()
 void inicializar()
 {
 
-	// provis�rio porque n�o libera a memoria usada pela arvore
+	// provis�rio porque n�o libera a memoria usada pela arvore
 	NO* raiz = NULL;
 	
 	cout << "Arvore inicializada \n";
@@ -152,5 +152,17 @@ int elementosArvore(NO* no)
 
 void exibirElementosArvore(NO* no)
 {
-	
+    // Caso base: é a  condição de parada, ele é a primeira coisa que deve ser feita
+	if (no == NULL) {
+		return ;
+	}
+    
+    // Processar subárvore esquerda
+    exibirElementosArvore(no->esq);
+
+    // Processar nó atual (exibir valor)
+    printf("%d \n", no->valor);
+
+    // Processar subárvore direita
+	exibirElementosArvore(no->dir);
 }
